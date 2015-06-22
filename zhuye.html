@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>zy</title>
+<title>jQuery Drop Down Menu</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+// Executes the function when DOM will be loaded fully
+$(document).ready(function () {	
+	// hover property will help us set the events for mouse enter and mouse leave
+	$('.navigation li').hover(
+		// When mouse enters the .navigation element
+		function () {
+			//Fade in the navigation submenu
+			$('ul', this).fadeIn(); 	// fadeIn will show the sub cat menu
+		}, 
+		// When mouse leaves the .navigation element
+		function () {
+			//Fade out the navigation submenu
+			$('ul', this).fadeOut();	 // fadeOut will hide the sub cat menu		
+		}
+	);
+});
+	</script>
+	
+	<style type="text/css">
+	
+	/* Giving a font-family and Size to give good look */
+	body{
+	font-family: Arial, Helvetica,sans-serif;
+	font-size:15px;
+	background-color: #CCFFCC;
+	}
+	
+	/* Adjusting the margins, paddings and no list styles */
+	.navigation  {
+		margin:0; 
+		padding:0; 
+		list-style:none;
+	}	
+	
+	/* Little tricking with positions */
+	.navigation  li {
+		float:left;			/* Show list items inline */
+		width:100px; 
+		position:relative;
+	}
+		
+	/* Playing with Main Categories */
+	.navigation  li a {
+		background:#006633; 
+		color:#fff;
+		display:block;  	/* Making sure a element covers whole li area */
+		padding:8px 7px 8px 7px;
+	 
+		text-decoration:none; /* No underline */
+		border-top:1px solid #F2861D;
+		text-align:center; 
+		text-transform:uppercase;
+	}
+
+	.navigation  li a:hover {
+		color:#66FF99;
+	}
+		
+	/* Sub Cat Menu stuff*/
+	.navigation  ul {
+		position:absolute; 
+		left:0; 
+		display:none; /* Hide it by default */
+		margin:0 0 0 -1px; 
+		padding:0; 
+		list-style:none;
+		border-bottom:3px solid #F2861D;
+	}
+		
+	.navigation  ul li {
+		width:100px; 
+		float:left; 
+		border-top:none;
+	}
+		
+	/* Sub Cat menu link properties */
+	.navigation  ul a {
+		display:block;    	/* Making sure a element covers whole li area */
+		height:15px;
+		padding:8px 2px 13px 3px; 
+		color:#FFFF00;
+		text-decoration:none;	
+		border-top:none;
+		border-bottom:1px dashed #6B6B6B;
+	}
+		
+	.navigation  ul a:hover {
+		color:#99FF99;
+	}
+	.top {
+	margin-top: 100px;
+}
+    main {
+	background-color: #66FF99;
+}
+    .mainm {
+	background-color: #CCFFFF;
+}
+    .ttitel {
+	font-size: xx-large;
+	font-weight: bold;
+	text-decoration: blink;
+}
+    .text_right {
+	text-align: right;
+	vertical-align: bottom;
+}
+    .botton {
+	background-color: #66FF99;
+	margin-bottom: 0px;
+}
+    .color_title {
+	background-color: #00FF99;
+}
+    .botton_2 {
+	background-color: #FFFF99;
+}
+    .booton_3 {
+	background-color: #333300;
+}
+    .bottonText {
+	text-align: center;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+    </style>
+<style type="text/css">
+<!--
+.top_t2 {
+	background-color: #006633;
+}
+.STYLE2 {color: #669900}
+.STYLE3 {color: #9966CC}
+-->
+</style>
+</head>
+<body>
+<div class="botton" id="top_t1">
+  <div class="color_title" id="top_left">
+    <p>&nbsp;</p>
+    <p class="ttitel">&nbsp;&nbsp;&nbsp;&nbsp;餐饮管理系统</p>
+    <p>&nbsp;</p>
+  </div>
+  <div class="text_right" id="top_right">
+    <p class="text_right">
+	<span>当前时间是：</span><span id="timer" style="font:13px tahoma;height:10px;"><script>setInterval("timeStr=new Date().toLocaleString();timer.innerText=timeStr;",1000)
+</script></span>
+	</p>
+  </div>
+</div>
+<div class="top_t2" id="top_t2">
+   <ul class="navigation">
+	<li><a href="zhuye.html">首页</a></li>
+	<li><a href="#">基本信息 </a>
+		<ul>
+			<li><a href="DeskXx.aspx" target="ttt">桌台信息</a></li>
+			<li><a href="Worker.aspx" target="ttt">职员信息</a></li>
+		</ul>
+		<div class="clear"></div>
+	</li>
+	<li><a href="#">辅助工具 </a>
+	<ul>
+		<li><a href="Calendar.aspx" target="ttt">日历</a></li>
+	</ul>			
+		<div class="clear"></div>
+	</li>
+	<li><a href="#">系统维护</a>
+	<ul>
+		<li><a href="PowerManage.aspx" target="ttt">权限管理</a></li>
+		
+		
+	</ul>			
+		<div class="clear"></div>
+	</li>
+	<li><a href="#">系统设置</a>
+		<ul>
+			<li><a href="ChangePwd.aspx" target="ttt">口令设置</a></li>
+			<li><a href="LockSys.aspx" target="ttt">锁定系统</a></li>
+		</ul>
+		<div class="clear"></div>
+	</li>
+	<li><a href="#">帮助 </a>
+		<ul>
+			<li><a href="About.aspx" target="ttt">关于</a></li>
+    	</ul>
+		<div class="clear"></div>
+	</li>
+	<li><a href="#">退出 </a>
+		<ul>
+			<li><a href="Exit.aspx">退出系统</a></li>
+    	</ul>
+		<div class="clear"></div>
+	</li>
+	<p><br />&nbsp;</p>
+   </ul>
+</div>
+<div class="botton" id="botton">
+  <iframe name="t1" id="t1" width="100%"  style="background-color:#663366" frameborder="0" scrolling="no" height="40" align="left" src="sysZT.aspx"></iframe>
+  
+</div>
+<div class="botton_2" id="botton_2">
+<br />
+<iframe name="ttt" id="ttt" width="100%" frameborder="0" scrolling="yes" height="600" src="indexF.html">
+  <p>主要内容显示区</p>
+  
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  </iframe>
+</div>
+<div class="booton_3" id="booton_3">
+  <p class="bottonText STYLE2">&nbsp;</p>
+  <p class="bottonText STYLE3">刘合安 制作</p>
+  <p>&nbsp;</p>
+</div>
+</body>
+</html>

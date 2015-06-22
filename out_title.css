@@ -1,0 +1,9 @@
+.out_title {
+	font-family: "Courier New", Courier, monospace;
+	font-size: xx-large;
+	font-weight: bolder;
+	font-style: oblique;
+	color: #006633;
+	text-decoration: blink;
+	word-spacing: 1pc;
+}
