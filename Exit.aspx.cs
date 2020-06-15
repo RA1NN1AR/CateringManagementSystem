@@ -14,7 +14,7 @@ public partial class Exit : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         Session["AdminCheck"] = null;
-        Response.Write("<script>alert('即将退出系统！');window.location.href='Login.aspx'</script>");
+        Response.Write("<script>alert('已注销用户,若需要继续使用,请重新登录.');window.location.href='Login.aspx'</script>");
 
     }
    

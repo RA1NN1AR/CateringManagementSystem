@@ -19,8 +19,7 @@ public partial class JZ : System.Web.UI.Page
         Application.Lock();
         string name=Application["name"].ToString();
         Application.UnLock();
-        string consqlserver = ConfigurationManager.ConnectionStrings["db_MrCyConn"].ConnectionString;
-        //string consqlserver = "data source=LIUHEAN;Initial catalog=db_MrCy;Integrated Security=SSPI;uid=sa;pwd=an822356";
+        string consqlserver = "data source=.;Initial catalog=db_MrCy;Integrated Security=True;uid=sa;pwd=7246";
         SqlConnection conn = new SqlConnection(consqlserver);
         conn.Open();
         SqlCommand cmd = new SqlCommand("select sum(foodallprice) from tb_GuestFood where zhuotai='" + name + "'", conn);

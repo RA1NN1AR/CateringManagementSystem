@@ -21,8 +21,7 @@ public partial class _Default : System.Web.UI.Page
     protected void Login_Click(object sender, EventArgs e)
     {
        // string noo = "1";
-        string consqlserver = ConfigurationManager.ConnectionStrings["db_MrCyConn"].ConnectionString;
-        //string consqlserver = "data source=LIUHEAN;Initial catalog=db_MrCy;Integrated Security=SSPI;uid=sa;pwd=an822356";
+        string consqlserver = "data source=.;Initial catalog=db_MrCy;Integrated Security=True;uid=sa;pwd=7246";
         SqlConnection conn = new SqlConnection(consqlserver);
         string sql = "select yesORno from lock";
         conn.Open();
@@ -44,13 +43,13 @@ public partial class _Default : System.Web.UI.Page
             if (ds.Tables[0].Rows.Count > 0)
             {
                 Session["AdminCheck"] = Login_name.Text.Trim();
-                Response.Write("<Script Language=JavaScript>alert('登陆成功。')</Script>");
+                Response.Write("<Script Language=JavaScript>alert('登录成功。')</Script>");
                 Response.Redirect("zhuye.html");
             }
             else
             {
 
-                Response.Write("<Script Language=JavaScript>alert('登陆失败，请重新登陆。')</Script>");
+                Response.Write("<Script Language=JavaScript>alert('登录失败，请重新登录。')</Script>");
                 return;
             }
             conn.Close();
@@ -69,12 +68,12 @@ public partial class _Default : System.Web.UI.Page
            string ir =dsr.Tables[0].Rows[0][0].ToString().Trim();
             if(ir == Login_password.Text.Trim()){
                 Session["AdminCheck"] = Login_name.Text;
-                Response.Write("<Script Language=JavaScript>alert('登陆成功。');window.location.href='zhuye.html'</Script>");
+                Response.Write("<Script Language=JavaScript>alert('登录成功。');window.location.href='zhuye.html'</Script>");
                
             }
             else
             {
-                Response.Write("<script>alert('系统已锁定，您无权登录！');</script>");
+                Response.Write("<script>alert('系统已锁定，暂时无法登录,必要时请联系管理员.');</script>");
             }
             conn.Close();
         }

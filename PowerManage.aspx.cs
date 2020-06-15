@@ -14,8 +14,7 @@ public partial class PowerManage : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        string consqlserver = ConfigurationManager.ConnectionStrings["db_MrCyConn"].ConnectionString;
-        //string consqlserver = "data source=LIUHEAN;Initial catalog=db_MrCy;Integrated Security=SSPI;uid=sa;pwd=an822356";
+        string consqlserver = "data source=.;Initial catalog=db_MrCy;Integrated Security=True;uid=sa;pwd=7246";
        
         string sql = "select power from tb_User where UserName='" + Session["AdminCheck"] + "' ";
         SqlConnection conn = new SqlConnection(consqlserver);
@@ -26,7 +25,7 @@ public partial class PowerManage : System.Web.UI.Page
         string i = ds.Tables[0].Rows[0][0].ToString().Trim();
         if (i != "0")
         {
-            Response.Write("<script>alert('抱歉，您未取得 系统维护 权限，请联系管理员！');window.location.href='indexF.html'</script>");
+            Response.Write("<script>alert('由于权限不足,操作失败.必要时请联系管理员.');window.location.href='indexF.html'</script>");
         }
         else {
             if (!IsPostBack)
@@ -47,8 +46,7 @@ public partial class PowerManage : System.Web.UI.Page
             case "经理": userpower = "1"; break;
             case "一般用户": userpower = "2"; break;
         }
-        string consqlserver = ConfigurationManager.ConnectionStrings["db_MrCyConn"].ConnectionString;
-        //string consqlserver = "data source=LIUHEAN;Initial catalog=db_MrCy;Integrated Security=SSPI;uid=sa;pwd=an822356";
+        string consqlserver = "data source=.;Initial catalog=db_MrCy;Integrated Security=True;uid=sa;pwd=7246";
         SqlConnection conn = new SqlConnection(consqlserver);
         conn.Open();
         SqlCommand cmd = new SqlCommand("update tb_User set power='" + userpower + "' where UserName='"+pmUser.SelectedItem.ToString()+"'",conn);
@@ -65,8 +63,7 @@ public partial class PowerManage : System.Web.UI.Page
     public void pmSelect()   //数据绑定
     {
 
-        string consqlserver = ConfigurationManager.ConnectionStrings["db_MrCyConn"].ConnectionString;
-        //string consqlserver = "data source=LIUHEAN;Initial catalog=db_MrCy;Integrated Security=SSPI;uid=sa;pwd=an822356";
+        string consqlserver = "data source=.;Initial catalog=db_MrCy;Integrated Security=True;uid=sa;pwd=7246";
         string Sql = "select * from tb_User ";
         SqlConnection conn = new SqlConnection(consqlserver);
         conn.Open();

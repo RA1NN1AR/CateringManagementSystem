@@ -15,8 +15,7 @@ public partial class sysZT : System.Web.UI.Page
     {
        
         sysUser.Text=Session["AdminCheck"].ToString();
-        string consqlserver = ConfigurationManager.ConnectionStrings["db_MrCyConn"].ConnectionString;
-        //string consqlserver = "data source=LIUHEAN;Initial catalog=db_MrCy;Integrated Security=SSPI;uid=sa;pwd=an822356";
+        string consqlserver = "data source=.;Initial catalog=db_MrCy;Integrated Security=True;uid=sa;pwd=7246";
         string sql = "select power from tb_User where UserName='"+Session["AdminCheck"]+"' ";
         SqlConnection conn = new SqlConnection(consqlserver);
         conn.Open();

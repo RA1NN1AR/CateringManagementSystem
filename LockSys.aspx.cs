@@ -14,8 +14,7 @@ public partial class LockSys : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         lockZT();
-        string consqlserver = ConfigurationManager.ConnectionStrings["db_MrCyConn"].ConnectionString;
-        //string consqlserver = "data source=LIUHEAN;Initial catalog=db_MrCy;Integrated Security=SSPI;uid=sa;pwd=an822356";
+        string consqlserver = "data source=.;Initial catalog=db_MrCy;Integrated Security=True;uid=sa;pwd=7246";
         SqlConnection conn = new SqlConnection(consqlserver);
         string sql = "select power from tb_User where UserName='" + Session["AdminCheck"] + "' ";
         conn.Open();
@@ -25,7 +24,7 @@ public partial class LockSys : System.Web.UI.Page
         string i = ds.Tables[0].Rows[0][0].ToString().Trim();
         if (i != "0")
         {
-            Response.Write("<script>alert('抱歉，您未取得 系统设置 权限，请联系管理员！');window.location.href='indexF.html'</script>");
+            Response.Write("<script>alert('当前用户的权限不足，必要时请联系管理员.');window.location.href='indexF.html'</script>");
         }
        
         conn.Close();
@@ -36,8 +35,7 @@ public partial class LockSys : System.Web.UI.Page
 
     public void lockZT() {
 
-        string consqlserver = ConfigurationManager.ConnectionStrings["db_MrCyConn"].ConnectionString;
-        //string consqlserver = "data source=LIUHEAN;Initial catalog=db_MrCy;Integrated Security=SSPI;uid=sa;pwd=an822356";
+        string consqlserver = "data source=.;Initial catalog=db_MrCy;Integrated Security=True;uid=sa;pwd=7246";
         SqlConnection conn = new SqlConnection(consqlserver);
         string sql2 = "select yesORno from lock  ";
         conn.Open();
@@ -81,7 +79,7 @@ public partial class LockSys : System.Web.UI.Page
             int i2=cmd2.ExecuteNonQuery();
             if (i2 > 0)
             {
-                Response.Write("<script>alert('系统已锁定，其他用户将不能登陆。');window.location.href='LockSys.aspx'</script>");
+                Response.Write("<script>alert('系统已锁定，其他用户将不能登录。');window.location.href='LockSys.aspx'</script>");
        
             }
             else {
@@ -92,7 +90,7 @@ public partial class LockSys : System.Web.UI.Page
 
         }
         else {
-            Response.Write("<script>alert('口令不正确，请重新输入！');</script>");
+            Response.Write("<script>alert('口令不正确，请重新输入.');</script>");
         }
     }
     protected void bt_unlock_Click(object sender, EventArgs e)
@@ -117,7 +115,7 @@ public partial class LockSys : System.Web.UI.Page
             int i2 = cmd2.ExecuteNonQuery();
             if (i2 > 0)
             {
-                Response.Write("<script>alert('系统锁定解除，其他用户允许登陆。');window.location.href='LockSys.aspx'</script>");
+                Response.Write("<script>alert('解除了系统锁定，将允许其他用户登录.');window.location.href='LockSys.aspx'</script>");
 
             }
             else

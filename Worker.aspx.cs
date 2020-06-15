@@ -22,8 +22,7 @@ public partial class Worker : System.Web.UI.Page
     private void SetBind()
     {
 
-        string consqlserver = ConfigurationManager.ConnectionStrings["db_MrCyConn"].ConnectionString;
-        //string consqlserver = "data source=LIUHEAN;Initial catalog=db_MrCy;Integrated Security=SSPI;uid=sa;pwd=an822356";
+        string consqlserver = "data source=.;Initial catalog=db_MrCy;Integrated Security=True;uid=sa;pwd=7246";
         SqlConnection conn = new SqlConnection(consqlserver);
         string Sql = "select * from tb_Waiter order by ID DESC";
         SqlDataAdapter da = new SqlDataAdapter(Sql, conn);

@@ -18,8 +18,7 @@ public partial class ChangePwd : System.Web.UI.Page
     protected void bt_cpSave_Click(object sender, EventArgs e)
     {
 
-        string consqlserver = ConfigurationManager.ConnectionStrings["db_MrCyConn"].ConnectionString;
-        //string consqlserver = "data source=LIUHEAN;Initial catalog=db_MrCy;Integrated Security=SSPI;uid=sa;pwd=an822356";
+        string consqlserver = "data source=.;Initial catalog=db_MrCy;Integrated Security=True;uid=sa;pwd=7246";
         SqlConnection conn = new SqlConnection(consqlserver);
         string Sql = "update tb_User set UserPwd='"+cpText.Text+"' where UserName='"+Session["AdminCheck"]+"'";
        // SqlConnection conn = new SqlConnection(connString);
@@ -31,7 +30,7 @@ public partial class ChangePwd : System.Web.UI.Page
         }
         catch (Exception en) { }
         finally {
-            Response.Write("<script>alert('修改密码成功。');</script>");
+            Response.Write("<script>alert('已成功修改密码。');</script>");
         }
         conn.Close();
     }

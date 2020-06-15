@@ -20,8 +20,7 @@ public partial class addWaiter : System.Web.UI.Page
 
     protected void addWaiter_save_Click(object sender, EventArgs e)
     {
-        string consqlserver = ConfigurationManager.ConnectionStrings["db_MrCyConn"].ConnectionString;
-        //string consqlserver = "data source=LIUHEAN;Initial catalog=db_MrCy;Integrated Security=SSPI;uid=sa;pwd=an822356";
+        string consqlserver = "data source=.;Initial catalog=db_MrCy;Integrated Security=True;uid=sa;pwd=7246";
         SqlConnection conn = new SqlConnection(consqlserver);
         string Sql = "insert into tb_Waiter values('" + aw_name.Text + "','" + aw_idcard.Text + "','" + aw_num.Text + "','" + aw_sex.Text + "','" + aw_age.Text + "','" + aw_tel.Text + "')";
         SqlCommand cmd = new SqlCommand(Sql, conn);

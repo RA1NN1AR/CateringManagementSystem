@@ -21,8 +21,7 @@ public partial class _Default : System.Web.UI.Page
 
     protected void btn_SendMessage_Click(object sender, EventArgs e)
     {
-        string consqlserver = ConfigurationManager.ConnectionStrings["db_MrCyConn"].ConnectionString;
-        //string consqlserver = "data source=LIUHEAN;Initial catalog=db_MrCy;Integrated Security=SSPI;uid=sa;pwd=an822356";
+        string consqlserver = "data source=.;Initial catalog=db_MrCy;Integrated Security=True;uid=sa;pwd=7246";
         string Sql = "insert into tbGuestBook(UserName,PostTime,Message,IsReplied,Reply) values ('"+tb_UserName.Text+"','"+DateTime.Now+"','"+tb_Message.Text+"',0,'')";
         SqlConnection conn = new SqlConnection(consqlserver);
         SqlCommand cmd = new SqlCommand(Sql,conn);
@@ -34,8 +33,7 @@ public partial class _Default : System.Web.UI.Page
 
     private void SetBind() {
 
-        string consqlserver = ConfigurationManager.ConnectionStrings["db_MrCyConn"].ConnectionString;
-        //string consqlserver = "data source=LIUHEAN;Initial catalog=db_MrCy;Integrated Security=SSPI;uid=sa;pwd=an822356";
+        string consqlserver = "data source=.;Initial catalog=db_MrCy;Integrated Security=True;uid=sa;pwd=7246";
         string Sql = "select * from tbGuestBook order by PostTime DESC";
         SqlConnection conn = new SqlConnection(consqlserver);
         SqlDataAdapter da = new SqlDataAdapter(Sql,conn);

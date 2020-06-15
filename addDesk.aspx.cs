@@ -18,8 +18,7 @@ public partial class addDesk : System.Web.UI.Page
     protected void bt_add_Click(object sender, EventArgs e)
     {
         string dy="待用";
-        string consqlserver = ConfigurationManager.ConnectionStrings["db_MrCyConn"].ConnectionString;
-        //string consqlserver = "data source=LIUHEAN;Initial catalog=db_MrCy;Integrated Security=SSPI;uid=sa;pwd=an822356";
+        string consqlserver = "data source=.;Initial catalog=db_MrCy;Integrated Security=True;uid=sa;pwd=7246";
         SqlConnection conn = new SqlConnection(consqlserver);
         string Sql = "insert into tb_Room values('" +txtname.Text +"','" +txtjc.Text + "','" + txtbjf.Text+"','" + txtwz.Text + "','"+dy+"','" + txtlx.Text + "','" + txtbz.Text + "',null,null,null,null,null)";
         SqlCommand cmd = new SqlCommand(Sql, conn);

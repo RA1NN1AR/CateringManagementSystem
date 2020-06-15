@@ -29,9 +29,8 @@ public partial class Admin : System.Web.UI.Page
 
     private void SetBind()
     {
-        Msg.Text = "登陆成功!";
-        string consqlserver = ConfigurationManager.ConnectionStrings["db_MrCyConn"].ConnectionString;
-        //string consqlserver = "data source=LIUHEAN;Initial catalog=db_MrCy;Integrated Security=SSPI;uid=sa;pwd=an822356";
+        Msg.Text = "登录成功!";
+        string consqlserver = "data source=.;Initial catalog=db_MrCy;Integrated Security=True;uid=sa;pwd=7246";
         SqlConnection conn = new SqlConnection(consqlserver);
         string Sql = "select * from tb_Room order by zhangdanDate DESC";
         SqlDataAdapter da = new SqlDataAdapter(Sql, conn);
@@ -68,7 +67,7 @@ public partial class Admin : System.Web.UI.Page
            }
             else
             {
-                Response.Write("<Script Language=JavaScript>alert('登陆失败！')</Script>");
+                Response.Write("<Script Language=JavaScript>alert('登录失败！')</Script>");
                  Application["name"] = e.CommandArgument;
                 Response.Redirect("kaiTai.aspx");
             }

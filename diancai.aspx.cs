@@ -28,8 +28,7 @@ public partial class diancai : System.Web.UI.Page
 
     public void dcSelect() {
 
-        string consqlserver = ConfigurationManager.ConnectionStrings["db_MrCyConn"].ConnectionString;
-        //string consqlserver = "data source=LIUHEAN;Initial catalog=db_MrCy;Integrated Security=SSPI;uid=sa;pwd=an822356";
+        string consqlserver = "data source=.;Initial catalog=db_MrCy;Integrated Security=True;uid=sa;pwd=7246";
         SqlConnection conn = new SqlConnection(consqlserver);
         string Sql = "select * from tb_Waiter ";
      
@@ -53,8 +52,7 @@ public partial class diancai : System.Web.UI.Page
         Application.Lock();
         string name = Application["name"].ToString();
         Application.UnLock();
-        string consqlserver = ConfigurationManager.ConnectionStrings["db_MrCyConn"].ConnectionString;
-        //string consqlserver = "data source=LIUHEAN;Initial catalog=db_MrCy;Integrated Security=SSPI;uid=sa;pwd=an822356";
+        string consqlserver = "data source=.;Initial catalog=db_MrCy;Integrated Security=True;uid=sa;pwd=7246";
         SqlConnection conn = new SqlConnection(consqlserver);
         string Sql = "insert into tb_GuestFood values('" + null + "','" + dcFoodname.Text + "','" + dcNum.Text + "','" + dcHowmuch.Text + "','" + dcWaiter.SelectedItem.ToString() + "','" + dcBeizhu.Text + "','"+name+"',null)";
         SqlCommand cmd = new SqlCommand(Sql, conn);
@@ -71,8 +69,7 @@ public partial class diancai : System.Web.UI.Page
         Application.Lock();
         name = Application["name"].ToString();
         Application.UnLock();
-        string consqlserver = ConfigurationManager.ConnectionStrings["db_MrCyConn"].ConnectionString;
-        //string consqlserver = "data source=LIUHEAN;Initial catalog=db_MrCy;Integrated Security=SSPI;uid=sa;pwd=an822356";
+        string consqlserver = "data source=.;Initial catalog=db_MrCy;Integrated Security=True;uid=sa;pwd=7246";
         SqlConnection conn = new SqlConnection(consqlserver);
         SqlDataAdapter sda = new SqlDataAdapter("select foodname as '菜名',foodsum as '数量',foodallprice as '总价',waitername as '服务员',beizhu as '备注' from tb_GuestFood where zhuotai='" + name + "' order by ID desc", conn);
         DataSet ds = new DataSet();

@@ -26,8 +26,7 @@ public partial class xgWaiter : System.Web.UI.Page
         Application.Lock();
         string name = Application["name"].ToString();
         Application.UnLock();
-        string consqlserver = ConfigurationManager.ConnectionStrings["db_MrCyConn"].ConnectionString;
-        //string consqlserver = "data source=LIUHEAN;Initial catalog=db_MrCy;Integrated Security=SSPI;uid=sa;pwd=an822356";
+        string consqlserver = "data source=.;Initial catalog=db_MrCy;Integrated Security=True;uid=sa;pwd=7246";
         string sql = "update tb_Waiter set CardNum='" + xg_idcard.Text.Trim()+ "',WaiterNum='"+xg_num.Text.Trim()+"',Sex='"+xg_sex.Text.Trim()+"',Age='"+xg_age.Text.Trim()+"',Tel='"+xg_tel.Text.Trim()+"' where WaiterName='" + name + "' ";
         SqlConnection conn = new SqlConnection(consqlserver);
         conn.Open();
